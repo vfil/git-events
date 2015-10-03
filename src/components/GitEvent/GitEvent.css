@@ -1,0 +1,51 @@
+.GitEvent {
+    float: left;
+    margin: 10px;
+}
+
+.GitEvent-item {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.GitEvent-avatar-wrapper {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 5%;
+    /*box-shadow: 1px 2px 9px 1px #aaa;*/
+    box-shadow: 1px 1px 5px 1px #c9c9c9;
+    transition: all .20s;
+}
+.GitEvent-avatar-wrapper:hover {
+    box-shadow: 2px 3px 6px 3px #888;
+}
+
+.GitEvent-avatar {
+    width: 150px;
+    height: auto;
+}
+
+.GitEvent-avatar-title {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.50);
+    padding: 2px 1px;
+    color: #eee;
+    text-align: center;
+}
+
+.GitEvent-event {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.50);
+    padding: 2px 1px;
+    color: #eee;
+    text-align: center;
+}

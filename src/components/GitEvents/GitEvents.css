@@ -1,0 +1,12 @@
+.GitEvents-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    /*background-color: rgba(238, 238, 238, 0.25);*/
+}
+
+.GitEvents-list:after {
+    content: '';
+    display: block;
+    clear: both;
+}
