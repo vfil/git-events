@@ -49,3 +49,80 @@
     color: #eee;
     text-align: center;
 }
+
+.GitEvent-event--CommitCommentEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--CreateEvent {
+    background: rgba(0, 138, 103, 0.8);
+}
+.GitEvent-event--DeleteEvent {
+    background: rgba(187, 2, 67, 0.8);
+}
+.GitEvent-event--DeploymentEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--DeploymentStatusEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--DownloadEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--FollowEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--ForkEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--ForkApplyEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--GistEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--GollumEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--IssueCommentEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--IssuesEvent {
+    background: rgba(245,0,0,0.8);
+}
+.GitEvent-event--MemberEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--MembershipEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--PublicEventt {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--PageBuildEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--PullRequestEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--PullRequestReviewCommentEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--PushEvent {
+    background: rgba(2, 111, 18, 0.9);
+}
+.GitEvent-event--ReleaseEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--RepositoryEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--StatusEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--TeamAddEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--WatchEvent {
+    background: rgba(2, 161, 165, 0.8);
+}
+

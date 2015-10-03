@@ -8,6 +8,7 @@ class GitEvent extends Component {
 
     render() {
         const event = this.props.dataEvent;
+        const className = 'GitEvent-event ' + 'GitEvent-event--' + event.type;
         //console.log(event);
         return (
             <li className="GitEvent">
@@ -17,7 +18,7 @@ class GitEvent extends Component {
                             <ImageLoader
                                 src={event.actor.avatar_url}
                                 className="GitEvent-avatar" />
-                            <span className="GitEvent-event">{event.type}</span>
+                            <span className={className}>{event.type}</span>
                             <span className="GitEvent-avatar-title">{event.actor.login}</span>
                         </div>
                     </li>
