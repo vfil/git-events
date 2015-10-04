@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import GitEvent from '../GitEvent';
 import Select from 'react-select';
 import Toggle from 'material-ui/lib/toggle';
+import Slider from 'material-ui/lib/slider';
 import Cache from '../../utils/Cache';
 import withStyles from '../../decorators/withStyles';
 import styles from './GitEvents.css';
@@ -13,6 +14,9 @@ class GitEvents extends Component {
         super(props);
         this.state = {filter: [], data: props.data, load: false};
         this.loadInterval = null;
+        this.randomInterval = null;
+        this.randomFrequencyFactor = 1000;
+        this.randomFrequency = 1 * this.randomFrequencyFactor;
     }
 
     loadEvents() {
@@ -24,7 +28,7 @@ class GitEvents extends Component {
 
     setLoad(bool) {
         if(bool && !this.loadInterval)
-            this.loadInterval = setInterval(::this.loadEvents, 50);
+            this.loadInterval = setInterval(::this.loadEvents, 200);
         else {
             clearInterval(this.loadInterval)
             this.loadInterval = null;
@@ -39,8 +43,9 @@ class GitEvents extends Component {
     }
 
     setRandom(bool) {
+        console.log(this.randomFrequency);
         if(bool && !this.randomInterval)
-            this.randomInterval = setInterval(::this.randomEvents, 50);
+            this.randomInterval = setInterval(::this.randomEvents, this.randomFrequency);
     else {
             clearInterval(this.randomInterval)
             this.randomInterval = null;
@@ -101,6 +106,14 @@ class GitEvents extends Component {
         this.setRandom(toggled);
     }
 
+    changeRandomFrequency(event, value) {
+        this.randomFrequency = (1 - value) > 0 ? (1 - value) * this.randomFrequencyFactor: 0;
+        if(this.randomInterval) {
+            this.setRandom(false);
+            this.setRandom(true);
+        }
+    }
+
     componentDidcomponentWillUnmountUnMount() {
         clearInterval(this.loadInterval);
         clearInterval(this.randomInterval);
@@ -146,6 +159,7 @@ class GitEvents extends Component {
                         onToggle={::this.toggleRandom}
                         />
                 </div>
+                <Slider name="slider1" onChange={::this.changeRandomFrequency} />
                 <ul className="GitEvents-list">{eventNodes}</ul>
             </div>
         );
