@@ -3,6 +3,7 @@
 import React from 'react';
 import Router from 'react-routing/src/Router';
 import http from './core/HttpClient';
+import Cache from './utils/Cache';
 import App from './components/App';
 import ContentPage from './components/ContentPage';
 import ContactPage from './components/ContactPage';
@@ -20,8 +21,11 @@ const router = new Router(on => {
   });
 
   on('/gitevents', async (state) => {
+    let data = await http.get('https://api.github.com/events');
+    Cache.put('events', data);
     const content = {
-      data: await http.get('https://api.github.com/events')
+      data: data,
+      poolInterval: 3000
     };
     return <GitEvents {...content} />
   });

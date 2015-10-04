@@ -1,17 +1,49 @@
 import React, { Component } from 'react';
 import GitEvent from '../GitEvent';
 import Select from 'react-select';
+import Cache from '../../utils/Cache';
 import withStyles from '../../decorators/withStyles';
 import styles from './GitEvents.css';
-import selectStyles from 'react-select/dist/default.css';
 
-@withStyles(selectStyles)
 @withStyles(styles)
 class GitEvents extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {filter: []};
+        this.state = {filter: [], data: props.data};
+    }
+
+    loadEvents() {
+        this.setState({
+            filter: this.state.filter,
+            data: Cache.get('events').concat(this.state.data)
+        });
+    }
+
+    randomEvents() {
+        this.setState({
+            filter: this.state.filter,
+            data: this.shuffle(this.state.data)
+        });
+    }
+
+    shuffle(array) {
+        var currentIndex = array.length, temporaryValue, randomIndex ;
+
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+
+        return array;
     }
 
 
@@ -33,18 +65,26 @@ class GitEvents extends Component {
 
     handleSortChange(val) {
         let filter = val.split(',');
-        this.setState({filter: filter[0] === '' ? [] : filter });
+        this.setState({
+            filter: filter[0] === '' ? [] : filter,
+            data: this.state.data
+        });
+    }
+
+    componentDidMount() {
+        //setInterval(::this.loadEvents, 500);
+        //setInterval(::this.randomEvents, 1000);
     }
 
     render() {
 
-        let eventNodes = this.props.data.filter(::this.filterEvents).map(function(event, index) {
+        let eventNodes = this.state.data.filter(::this.filterEvents).map(function(event, index) {
             return (
-                <GitEvent key={event.id} dataEvent={event} />
+                <GitEvent key={index} dataEvent={event} />
             );
         });
 
-        let eventTypesOptions = this.getEventsTypes(this.props.data).map(function(type) {
+        let eventTypesOptions = this.getEventsTypes(this.state.data).map(function(type) {
             return (
                 { value: type, label: type }
             );

@@ -50,6 +50,22 @@
     text-align: center;
 }
 
+.GitEvent-description {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -25%;
+    display: none;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.90);
+    padding: 2px 1px;
+    color: #eee;
+    text-align: center;
+}
+.GitEvent-description--visible {
+    display: inline;
+}
+
 .GitEvent-event--CommitCommentEvent {
     background: rgba(0, 0, 0, 0.50);
 }

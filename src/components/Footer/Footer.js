@@ -25,7 +25,7 @@ class Footer extends Component {
     return (
       <div className="Footer">
         <div className="Footer-container">
-          <span className="Footer-text">© Lamudi GMbH</span>
+          <span className="Footer-text">© Lamudi GmbH</span>
           <span className="Footer-spacer">·</span>
           <span className="Footer-spacer">·</span>
           <a className="Footer-link" href="/privacy" onClick={Link.handleClick}>Privacy</a>
