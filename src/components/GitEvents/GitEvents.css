@@ -11,6 +11,10 @@
     clear: both;
 }
 
+.GitEvents-load {
+    width: 100px;
+}
+
 /* Select Component */
 .Select {
     position: relative;

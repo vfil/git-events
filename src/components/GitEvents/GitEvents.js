@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import GitEvent from '../GitEvent';
 import Select from 'react-select';
+import Toggle from 'material-ui/lib/toggle';
 import Cache from '../../utils/Cache';
 import withStyles from '../../decorators/withStyles';
 import styles from './GitEvents.css';
@@ -10,21 +11,40 @@ class GitEvents extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {filter: [], data: props.data};
+        this.state = {filter: [], data: props.data, load: false};
+        this.loadInterval = null;
     }
 
     loadEvents() {
         this.setState({
-            filter: this.state.filter,
+            //filter: this.state.filter,
             data: Cache.get('events').concat(this.state.data)
         });
     }
 
+    setLoad(bool) {
+        if(bool && !this.loadInterval)
+            this.loadInterval = setInterval(::this.loadEvents, 50);
+        else {
+            clearInterval(this.loadInterval)
+            this.loadInterval = null;
+        }
+    }
+
     randomEvents() {
         this.setState({
-            filter: this.state.filter,
+            //filter: this.state.filter,
             data: this.shuffle(this.state.data)
         });
+    }
+
+    setRandom(bool) {
+        if(bool && !this.randomInterval)
+            this.randomInterval = setInterval(::this.randomEvents, 50);
+    else {
+            clearInterval(this.randomInterval)
+            this.randomInterval = null;
+        }
     }
 
     shuffle(array) {
@@ -48,13 +68,15 @@ class GitEvents extends Component {
 
 
     getEventsTypes(events) {
-        return events.reduce(function(acc, next) {
+        var result = events.reduce(function(acc, next) {
             if(acc.indexOf(next.type) === -1) {
                 acc.push(next.type)
             }
 
             return acc;
         }, []);
+        result.sort();
+        return result;
     }
 
     filterEvents(event) {
@@ -67,13 +89,21 @@ class GitEvents extends Component {
         let filter = val.split(',');
         this.setState({
             filter: filter[0] === '' ? [] : filter,
-            data: this.state.data
+            //data: this.state.data
         });
     }
 
-    componentDidMount() {
-        //setInterval(::this.loadEvents, 500);
-        //setInterval(::this.randomEvents, 1000);
+    toggleLoad(event, toggled) {
+        this.setLoad(toggled);
+    }
+
+    toggleRandom(event, toggled) {
+        this.setRandom(toggled);
+    }
+
+    componentDidcomponentWillUnmountUnMount() {
+        clearInterval(this.loadInterval);
+        clearInterval(this.randomInterval);
     }
 
     render() {
@@ -99,6 +129,23 @@ class GitEvents extends Component {
                     onChange={::this.handleSortChange}
                     multi={true}
                     />
+                <div className="GitEvents-load">
+                    <Toggle
+                        name="toggleName1"
+                        value="toggleValue1"
+                        label="Load"
+                        onToggle={::this.toggleLoad}
+                        />
+                    <span>{this.state.data.length}</span>
+                </div>
+                <div className="GitEvents-random">
+                    <Toggle
+                        name="toggleName2"
+                        value="toggleValue2"
+                        label="Randomize"
+                        onToggle={::this.toggleRandom}
+                        />
+                </div>
                 <ul className="GitEvents-list">{eventNodes}</ul>
             </div>
         );

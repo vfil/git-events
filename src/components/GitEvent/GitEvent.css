@@ -52,15 +52,17 @@
 
 .GitEvent-description {
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
-    margin-left: -25%;
+    width: 150px;
+    margin-left: -75px;
     display: none;
     z-index: 10;
-    background: rgba(0, 0, 0, 0.90);
+    background: rgba(0, 0, 0, 0.80);
     padding: 2px 1px;
     color: #eee;
     text-align: center;
+    word-break: break-all;
 }
 .GitEvent-description--visible {
     display: inline;

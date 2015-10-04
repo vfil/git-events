@@ -35,7 +35,7 @@ class GitEvent extends Component {
                                 className="GitEvent-avatar" />
                             <span className={className}>{event.type}</span>
                             <span className="GitEvent-avatar-title">{event.actor.login}</span>
-                            <span className={tooltipClass}>{event.type}</span>
+                            <span className={tooltipClass}>{event.repo.name}</span>
                         </div>
                     </li>
                 </ul>
