@@ -2,10 +2,11 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-    /*background-color: rgba(238, 238, 238, 0.25);*/
+    margin-left: 340px;
 }
 
-.GitEvents-list:after {
+.GitEvents-list:after,
+.GitEvents-settings li:after {
     content: '';
     display: block;
     clear: both;
@@ -13,6 +14,27 @@
 
 .GitEvents-load {
     width: 100px;
+    float: left;
+}
+
+.GitEvents-settings {
+    float: left;
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #D2EAEC;
+    border-radius: 4px 4px 4px 4px;
+    list-style-type: none;
+    position: fixed;
+}
+
+.GitEvents-settings li {
+    margin: 10px 0;
+}
+
+.GitEvents-settings-counter {
+    float: right;
 }
 
 /* Select Component */
