@@ -137,24 +137,21 @@ class GitEvents extends Component {
             <div className="GitEvents">
             <ul className="GitEvents-settings">
                 <li>
-                <Select
-                    name="form-field-name"
-                    value={selectedTypes}
-                    options={eventTypesOptions}
-                    onChange={::this.handleSortChange}
-                    multi={true}
-                    />
-                    </li>
+                    <Select
+                        name="form-field-name"
+                        value={selectedTypes}
+                        options={eventTypesOptions}
+                        onChange={::this.handleSortChange}
+                        multi={true}
+                        />
+                </li>
                 <li>
-                    <div className="GitEvents-load">
-                        <Toggle
-                            name="toggleName1"
-                            value="toggleValue1"
-                            label="Load"
-                            onToggle={::this.toggleLoad}
-                            />
-                    </div>
-                    <span className="GitEvents-settings-counter">{this.state.data.length}</span>
+                    <Toggle
+                        name="toggleName1"
+                        value="toggleValue1"
+                        label="Load"
+                        onToggle={::this.toggleLoad}
+                        />
                 </li>
                 <li className="GitEvents-random">
                     <Toggle
@@ -166,7 +163,10 @@ class GitEvents extends Component {
                 </li>
                 <li>
                     <Slider name="slider1" onChange={::this.changeRandomFrequency} />
-                    </li>
+                </li>
+                <li>
+                    <span className="GitEvents-settings-counter">{this.state.data.length} Items</span>
+                </li>
                 </ul>
                 <ul className="GitEvents-list">{eventNodes}</ul>
             </div>
