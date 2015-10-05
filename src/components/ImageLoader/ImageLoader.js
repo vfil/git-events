@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import joinClasses from 'react/lib/joinClasses';
-import withStyles from '../../decorators/withStyles';
-import styles from './ImageLoader.css';
 
-@withStyles(styles)
 class ImageLoader extends Component {
 
     constructor(props) {

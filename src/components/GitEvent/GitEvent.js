@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import ImageLoader from '../ImageLoader';
-import withStyles from '../../decorators/withStyles';
-import styles from './GitEvent.css';
 
-@withStyles(styles)
 class GitEvent extends Component {
 
     constructor() {

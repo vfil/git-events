@@ -37,6 +37,161 @@
     float: right;
 }
 
+/*  GitEvent Item  */
+.GitEvent {
+    float: left;
+    margin: 10px;
+}
+
+.GitEvent-item {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.GitEvent-avatar-wrapper {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 5%;
+    /*box-shadow: 1px 2px 9px 1px #aaa;*/
+    box-shadow: 1px 1px 5px 1px #c9c9c9;
+    transition: all .20s;
+}
+.GitEvent-avatar-wrapper:hover {
+    box-shadow: 2px 3px 6px 3px #888;
+}
+
+.GitEvent-avatar {
+    width: 150px;
+    height: auto;
+}
+
+.GitEvent-avatar-title {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.50);
+    padding: 2px 1px;
+    color: #eee;
+    text-align: center;
+}
+
+.GitEvent-event {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.50);
+    padding: 2px 1px;
+    color: #eee;
+    text-align: center;
+}
+
+.GitEvent-description {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    width: 150px;
+    margin-left: -75px;
+    display: none;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.80);
+    padding: 2px 1px;
+    color: #eee;
+    text-align: center;
+    word-break: break-all;
+}
+.GitEvent-description--visible {
+    display: inline;
+}
+
+.GitEvent-event--CommitCommentEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--CreateEvent {
+    background: rgba(0, 138, 103, 0.8);
+}
+.GitEvent-event--DeleteEvent {
+    background: rgba(187, 2, 67, 0.8);
+}
+.GitEvent-event--DeploymentEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--DeploymentStatusEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--DownloadEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--FollowEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--ForkEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--ForkApplyEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--GistEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--GollumEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--IssueCommentEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--IssuesEvent {
+    background: rgba(245,0,0,0.8);
+}
+.GitEvent-event--MemberEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--MembershipEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--PublicEventt {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--PageBuildEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--PullRequestEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--PullRequestReviewCommentEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--PushEvent {
+    background: rgba(2, 111, 18, 0.9);
+}
+.GitEvent-event--ReleaseEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--RepositoryEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--StatusEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--TeamAddEvent {
+    background: rgba(0, 0, 0, 0.50);
+}
+.GitEvent-event--WatchEvent {
+    background: rgba(2, 161, 165, 0.8);
+}
+
+.ImageLoader-transparent {
+    opacity: 0;
+    transition: opacity 1s;
+}
+.ImageLoader-loaded {
+    opacity: 1;
+}
+
 /* Select Component */
 .Select {
     position: relative;
