@@ -20,19 +20,19 @@ class GitEvent extends Component {
     render() {
         const event = this.props.dataEvent;
         const className = 'GitEvent-event ' + 'GitEvent-event--' + event.type;
-        const tooltipClass = 'GitEvent-description' + (this.state.hover ? ' GitEvent-description--visible' : '');
-        //console.log(event);
+        const tooltipClass = '_GitEventTooltip GitEvent-description' + (this.state.hover ? ' GitEvent-description--visible' : '');
+        //console.log(JSON.stringify(event));
         return (
             <li className="GitEvent">
                 <ul className="GitEvent-item">
                     <li>
-                        <div className="GitEvent-avatar-wrapper" onMouseOver={::this.mouseOver} onMouseOut={::this.mouseOut}>
+                        <div className="GitEvent-avatar-wrapper" onMouseOver={::this.mouseOver} onMouseOut={::this.mouseOut} ref="item">
                             <ImageLoader
                                 src={event.actor.avatar_url}
                                 className="GitEvent-avatar" />
                             <span className={className}>{event.type}</span>
                             <span className="GitEvent-avatar-title">{event.actor.login}</span>
-                            <span className={tooltipClass}>{event.repo.name}</span>
+                            <span ref="tooltip" className={tooltipClass}>{event.repo.name}</span>
                         </div>
                     </li>
                 </ul>
